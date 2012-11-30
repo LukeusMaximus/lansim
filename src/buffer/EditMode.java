@@ -25,10 +25,10 @@ import module.ModuleUI;
 /**
  * 
  * @author Rohit
- *
+ * 
  */
 public class EditMode {
-    public static Module   module   = null;
+    public static Module module = null;
     public static ModuleUI moduleUI = null;
 
 }

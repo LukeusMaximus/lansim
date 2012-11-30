@@ -26,28 +26,29 @@ import javax.swing.UnsupportedLookAndFeelException;
  * 
  */
 public final class Config {
-	final static public String moduleDirPath = Config.class.getResource("/module").getPath();
+    final static public String moduleDirPath = Config.class.getResource(
+            "/module").getPath();
     final static public String iconPath = moduleDirPath + "/../../icons/";
 
     final static public void setLookNFeel() {
-	try {
-	    UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
-	    // UIManager.setLookAndFeel("net.sourceforge.napkinlaf.NapkinLookAndFeel");
-	} catch (ClassNotFoundException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	} catch (InstantiationException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	} catch (IllegalAccessException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	} catch (UnsupportedLookAndFeelException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	}
-	com.birosoft.liquid.LiquidLookAndFeel.setLiquidDecorations(true, "mac");
+        try {
+            UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
+            // UIManager.setLookAndFeel("net.sourceforge.napkinlaf.NapkinLookAndFeel");
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        com.birosoft.liquid.LiquidLookAndFeel.setLiquidDecorations(true, "mac");
 
-	// SwingUtilities.updateComponentTreeUI(mainWin.jFrame);
+        // SwingUtilities.updateComponentTreeUI(mainWin.jFrame);
     }
 }

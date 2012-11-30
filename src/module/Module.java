@@ -30,33 +30,36 @@ public interface Module {
     public static final int ERROR_ALREADY_MAX_PORTS = 0;
 
     /**
-         * Adds a new port (connection)
-         * 
-         * @return The error code if any. e.g. ERROR_ALREADY_MAX_PORTS is returned if no more ports of type wireType can be handeled by this module.
-         */
+     * Adds a new port (connection)
+     * 
+     * @return The error code if any. e.g. ERROR_ALREADY_MAX_PORTS is returned
+     *         if no more ports of type wireType can be handeled by this module.
+     */
     public int addPort(Port port, int wireType);
 
     /**
-         * If the implementing class doesn't want to extend or create an object of ModuleUI then return null.
-         * 
-         * @return
-         */
+     * If the implementing class doesn't want to extend or create an object of
+     * ModuleUI then return null.
+     * 
+     * @return
+     */
     public ModuleUI getModuleUI();
 
     public void setModuleUI(ModuleUI m);
 
     /**
-         * Returns the name of the implementing module. This name is displayed by the UI.
-         * 
-         * @return
-         */
+     * Returns the name of the implementing module. This name is displayed by
+     * the UI.
+     * 
+     * @return
+     */
     public String getName();
 
     /**
-         * Returns the name of the icon file that is displayed in the client area.
-         * 
-         * @return
-         */
+     * Returns the name of the icon file that is displayed in the client area.
+     * 
+     * @return
+     */
     public String getIconPath();
 
     public void setSno(int n);
@@ -69,7 +72,9 @@ public interface Module {
 
     public Port[] getPorts();// Gives the list of already initialized ports
 
-    public boolean isNewPacket();// Tells whether new packet is released by the module. If released, it sends true and resets the flag,else it
+    public boolean isNewPacket();// Tells whether new packet is released by the
+                                 // module. If released, it sends true and
+                                 // resets the flag,else it
 
     // returns false.
 

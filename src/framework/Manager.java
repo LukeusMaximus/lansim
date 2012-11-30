@@ -28,83 +28,84 @@ import module.Module;
  * 
  */
 public class Manager {
-    private ArrayList<Wire>   wires   = null;
+    private ArrayList<Wire> wires = null;
     private ArrayList<Module> modules = null;
-    private String	    name;
-    public Clock	      clock;
+    private String name;
+    public Clock clock;
 
     public Manager(String title) {
-	this.name = title;
-	clock = new Clock();
-	wires = new ArrayList<Wire>();
-	modules = new ArrayList<Module>();
+        this.name = title;
+        clock = new Clock();
+        wires = new ArrayList<Wire>();
+        modules = new ArrayList<Module>();
     }
 
     public String getName() {
-	return name;
+        return name;
     }
 
     /**
-         * To be used only by ui.ManagerUI and framework.FileManger.
-         * 
-         * @return
-         */
+     * To be used only by ui.ManagerUI and framework.FileManger.
+     * 
+     * @return
+     */
     public ArrayList<Wire> getWires() {
-	return wires;
+        return wires;
     }
 
     /**
-         * To be used only by ui.ManagerUI and framework.FileManger.
-         * 
-         * @return
-         */
+     * To be used only by ui.ManagerUI and framework.FileManger.
+     * 
+     * @return
+     */
     public ArrayList<Module> getModules() {
-	return modules;
+        return modules;
     }
 
     public void addModule(Module m) {
-	modules.add(m);
+        modules.add(m);
     }
 
     public void addWire(Wire w) {
-	wires.add(w);
+        wires.add(w);
     }
 
     /*
-         * public Port getPort(Module mod){ return new Port("test",mod); }
-         */
+     * public Port getPort(Module mod){ return new Port("test",mod); }
+     */
 
     /**
-         * Initiates the simulation. It actually resets the variables and readies Manager for simulation.
-         * 
-         */
+     * Initiates the simulation. It actually resets the variables and readies
+     * Manager for simulation.
+     * 
+     */
     public void initSimulation() {
-	clock.rstClock();
-	for (int i = 0; i < modules.size(); i++)
-	    modules.get(i).reset();
-	clock.setTimeStep(1);
+        clock.rstClock();
+        for (int i = 0; i < modules.size(); i++)
+            modules.get(i).reset();
+        clock.setTimeStep(1);
     }
 
     /**
-         * Simulates one step and returns control to ManagerUI
-         */
+     * Simulates one step and returns control to ManagerUI
+     */
     public void stepSimulation() {
-	// clock.incrTime();
-	// ALL BACKEND SIMUATION COLTROL CODE GOES HERE
-	for (int i = 0; i < modules.size(); i++) {
-	    (modules.get(i)).step(clock.getTime());
-	}
-	for (int i = 0; i < wires.size(); i++) {
-	    (wires.get(i)).step(clock.getTime());
-	}
+        // clock.incrTime();
+        // ALL BACKEND SIMUATION COLTROL CODE GOES HERE
+        for (int i = 0; i < modules.size(); i++) {
+            (modules.get(i)).step(clock.getTime());
+        }
+        for (int i = 0; i < wires.size(); i++) {
+            (wires.get(i)).step(clock.getTime());
+        }
     }
 
     public void endSimulation() {
-	for (int i = 0; i < modules.size(); i++) {
-	    modules.get(i).reset();
-	}
-	for (int i = 0; i < wires.size(); i++) {
-	    wires.get(i).reset();
-	}
+        for (int i = 0; i < modules.size(); i++) {
+            modules.get(i).reset();
+        }
+        for (int i = 0; i < wires.size(); i++) {
+            wires.get(i).reset();
+        }
     }
 }

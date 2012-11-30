@@ -38,30 +38,30 @@ public class Loader extends ClassLoader {
     }
 
     public Class load(String path) {
-	FileInputStream ifstream;
-	int len;
-	Class newClass;
-	byte b[] = new byte[MAX];
-	try {
-	    ifstream = new FileInputStream(path);
-	} catch (FileNotFoundException ex) {
-	    System.out.println("  FileNotFound");
-	    return null;
-	}
-	try {
-	    len = ifstream.read(b);
-	    System.out.println(path + " of " + len + " bytes Loaded");
-	} catch (IOException IOe) {
-	    System.out.println(path + "  IOException");
-	    return null;
-	}
-	try {
-	    newClass = defineClass(null, b, 0, len);
-	    resolveClass(newClass);
-	} catch (Exception e) {
-	    System.out.println("Exception");
-	    return null;
-	}
-	return newClass;
+        FileInputStream ifstream;
+        int len;
+        Class newClass;
+        byte b[] = new byte[MAX];
+        try {
+            ifstream = new FileInputStream(path);
+        } catch (FileNotFoundException ex) {
+            System.out.println("  FileNotFound");
+            return null;
+        }
+        try {
+            len = ifstream.read(b);
+            System.out.println(path + " of " + len + " bytes Loaded");
+        } catch (IOException IOe) {
+            System.out.println(path + "  IOException");
+            return null;
+        }
+        try {
+            newClass = defineClass(null, b, 0, len);
+            resolveClass(newClass);
+        } catch (Exception e) {
+            System.out.println("Exception");
+            return null;
+        }
+        return newClass;
     }
 }

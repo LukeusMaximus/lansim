@@ -28,22 +28,22 @@ public abstract class ComponentUI {
     protected boolean selected = false;
 
     /**
-         * Returns true if the concerned component (wire or module) as been clicked.
-         * 
-         * @return
-         */
+     * Returns true if the concerned component (wire or module) as been clicked.
+     * 
+     * @return
+     */
     abstract public boolean isClicked(Point pt);
 
     /**
-         * Sets or resets selected flag.
-         * 
-         * @param flag
-         */
+     * Sets or resets selected flag.
+     * 
+     * @param flag
+     */
     public void setSelected(boolean flag) {
-	selected = flag;
+        selected = flag;
     }
 
     public boolean isSelected() {
-	return selected;
+        return selected;
     }
 }

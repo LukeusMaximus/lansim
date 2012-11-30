@@ -29,62 +29,62 @@ import framework.Port;
 public class ModuleAbstractClass implements Module {
 
     public int addPort(Port port, int wireType) {
-	// TODO Auto-generated method stub
-	return 0;
+        // TODO Auto-generated method stub
+        return 0;
     }
 
     public String getIconPath() {
-	return  Config.moduleDirPath + "/" + getName() + "/icon.gif";
+        return Config.moduleDirPath + "/" + getName() + "/icon.gif";
     }
 
     public ModuleUI getModuleUI() {
-	// TODO Auto-generated method stub
-	return null;
+        // TODO Auto-generated method stub
+        return null;
     }
 
     public String getName() {
-	// TODO Auto-generated method stub
-	return null;
+        // TODO Auto-generated method stub
+        return null;
     }
 
     public int getNoOfPorts() {
-	// TODO Auto-generated method stub
-	return 0;
+        // TODO Auto-generated method stub
+        return 0;
     }
 
     public Port[] getPorts() {
-	// TODO Auto-generated method stub
-	return null;
+        // TODO Auto-generated method stub
+        return null;
     }
 
     public int getSno() {
-	// TODO Auto-generated method stub
-	return 0;
+        // TODO Auto-generated method stub
+        return 0;
     }
 
     public boolean isNewPacket() {
-	// TODO Auto-generated method stub
-	return false;
+        // TODO Auto-generated method stub
+        return false;
     }
 
     public boolean reset() {
-	// TODO Auto-generated method stub
-	return false;
+        // TODO Auto-generated method stub
+        return false;
     }
 
     public void setModuleUI(ModuleUI m) {
-    // TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
     }
 
     public void setSno(int n) {
-    // TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
     }
 
     public boolean step(double TimeStep) {
-	// TODO Auto-generated method stub
-	return false;
+        // TODO Auto-generated method stub
+        return false;
     }
 
 }

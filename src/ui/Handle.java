@@ -27,35 +27,38 @@ import java.awt.geom.Point2D;
  * 
  */
 public class Handle {
-    private Point2D.Double coord    = null;
-    private boolean	portFlag = false; // This is true if this handle represents a port.
+    private Point2D.Double coord = null;
+    private boolean portFlag = false; // This is true if this handle represents
+                                      // a port.
 
     /*
-         * Handle(Point2D.Double p){ coord = new Point2D.Double(); coord.setLocation(p); }
-         */
+     * Handle(Point2D.Double p){ coord = new Point2D.Double();
+     * coord.setLocation(p); }
+     */
 
     Handle(Point2D.Double p, boolean isPort) {
-	coord = new Point2D.Double();
-	coord.setLocation(p);
-	portFlag = isPort;
+        coord = new Point2D.Double();
+        coord.setLocation(p);
+        portFlag = isPort;
     }
 
     boolean equals(Handle h) {
-	if (coord.x == h.coord.x && coord.y == h.coord.y && portFlag == h.portFlag)
-	    return true;
-	else
-	    return false;
+        if (coord.x == h.coord.x && coord.y == h.coord.y
+                && portFlag == h.portFlag)
+            return true;
+        else
+            return false;
     }
 
     Point2D.Double getCoord() {
-	return coord;
+        return coord;
     }
 
     boolean isPort() {
-	return portFlag;
+        return portFlag;
     }
 
     public void setCoord(Point2D.Double p) {
-	coord.setLocation(p);
+        coord.setLocation(p);
     }
 }

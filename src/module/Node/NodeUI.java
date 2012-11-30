@@ -36,50 +36,53 @@ import ui.Mode;
  * 
  */
 public class NodeUI extends ModuleUI implements ActionListener {
-    JPanel    propPg  = null;
+    JPanel propPg = null;
     JCheckBox chkEmit = null;
-    NodeMod   mod     = null;
+    NodeMod mod = null;
 
     public NodeUI(NodeMod m) {
-	super(m);
-	mod = m;
+        super(m);
+        mod = m;
     }
 
     protected DataUI getNewDataUI(Packet p) {
-	DataUI dui = super.getNewDataUI(p);
-	dui.setDisplayString(p.getFromId() + "->" + p.getToId());
-	return dui;
+        DataUI dui = super.getNewDataUI(p);
+        dui.setDisplayString(p.getFromId() + "->" + p.getToId());
+        return dui;
     }
 
     public JPanel getPropertyPage() {
-	if (propPg == null) {
-	    propPg = new JPanel();
-	    propPg.setLayout(new BorderLayout());
-	    propPg.add(getChkEmit(), BorderLayout.CENTER);
-	    propPg.setPreferredSize(new Dimension(150, 100));
-	}
-	return propPg;
+        if (propPg == null) {
+            propPg = new JPanel();
+            propPg.setLayout(new BorderLayout());
+            propPg.add(getChkEmit(), BorderLayout.CENTER);
+            propPg.setPreferredSize(new Dimension(150, 100));
+        }
+        return propPg;
     }
 
     private JCheckBox getChkEmit() {
-	if (chkEmit == null) {
-	    chkEmit = new JCheckBox("Emit Packets");
-	    chkEmit.setSelected(mod.canEmitData);
-	    chkEmit.addActionListener(this);
-	}
-	return chkEmit;
+        if (chkEmit == null) {
+            chkEmit = new JCheckBox("Emit Packets");
+            chkEmit.setSelected(mod.canEmitData);
+            chkEmit.addActionListener(this);
+        }
+        return chkEmit;
     }
 
     public boolean isPropertyPageAvailable(Mode mode) {
-	if (mode == Mode.EDIT_MODE)
-	    return true;
-	else
-	    return false;
+        if (mode == Mode.EDIT_MODE)
+            return true;
+        else
+            return false;
     }
 
     public void actionPerformed(ActionEvent e) {
-	mod.canEmitData = chkEmit.isSelected();// When Loader (our custom class loader) was used to load NodeMod this line
-	// allways threw "LinkageError NodeMod violates loader constraints" runtime exception. Phew! We got rid of that of
-	// that by using Class.forName().
+        mod.canEmitData = chkEmit.isSelected();// When Loader (our custom class
+                                               // loader) was used to load
+                                               // NodeMod this line
+        // allways threw "LinkageError NodeMod violates loader constraints"
+        // runtime exception. Phew! We got rid of that of
+        // that by using Class.forName().
     }
 }

@@ -29,12 +29,12 @@ import module.ModuleUI;
  */
 public class RouterUI extends ModuleUI {
     public RouterUI(Module m) {
-	super(m);
+        super(m);
     }
 
     protected DataUI getNewDataUI(Packet p) {
-	DataUI dui = super.getNewDataUI(p);
-	dui.setDisplayString(p.getFromId() + "->" + p.getToId());
-	return dui;
+        DataUI dui = super.getNewDataUI(p);
+        dui.setDisplayString(p.getFromId() + "->" + p.getToId());
+        return dui;
     }
 }

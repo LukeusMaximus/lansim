@@ -29,49 +29,51 @@ import framework.Packet;
  * 
  */
 public class DataUI {
-    private static final int width      = 10;
-    private static final int height     = 10;
-    private int	      direction  = 0;   // 0 means it has not been set.
-    private String	   dispString = null;
-    Packet		   packet     = null;
-    public Point2D.Double    pos;
-    private Color	    colour;
+    private static final int width = 10;
+    private static final int height = 10;
+    private int direction = 0; // 0 means it has not been set.
+    private String dispString = null;
+    Packet packet = null;
+    public Point2D.Double pos;
+    private Color colour;
 
     public DataUI(Packet p) {
-	colour = Color.GREEN;
-	pos = new Point2D.Double(-1, -1);// -ve coord means it is not placed anywhere.
-	dispString = null;
-	packet = p;
+        colour = Color.GREEN;
+        pos = new Point2D.Double(-1, -1);// -ve coord means it is not placed
+                                         // anywhere.
+        dispString = null;
+        packet = p;
     }
 
     public DataUI(DataUI d) {
-	colour = d.colour;
-	pos = new Point2D.Double(d.pos.x, d.pos.y);
-	dispString = new String(d.dispString);
-	direction = d.direction;
+        colour = d.colour;
+        pos = new Point2D.Double(d.pos.x, d.pos.y);
+        dispString = new String(d.dispString);
+        direction = d.direction;
     }
 
     public void setDisplayString(String s) {
-	if (s != null && s.trim() == "")
-	    s = null;
-	dispString = s;
+        if (s != null && s.trim() == "")
+            s = null;
+        dispString = s;
     }
 
     /**
-         * Renders the data packet at x,y
-         * 
-         * @param g
-         */
+     * Renders the data packet at x,y
+     * 
+     * @param g
+     */
     public void render(Graphics g) {
-	Color t = g.getColor();
+        Color t = g.getColor();
 
-	g.setColor(colour);
-	g.fillOval((int) (pos.x - (double) (width / 2)), (int) (pos.y - (double) (height / 2)), width, height);
-	if (dispString != null) {
-	    g.setColor(Color.BLACK);
-	    g.drawString(dispString, (int) pos.x + width, (int) pos.y + height);
-	}
-	g.setColor(t);
+        g.setColor(colour);
+        g.fillOval((int) (pos.x - (double) (width / 2)),
+                (int) (pos.y - (double) (height / 2)), width, height);
+        if (dispString != null) {
+            g.setColor(Color.BLACK);
+            g.drawString(dispString, (int) pos.x + width, (int) pos.y + height);
+        }
+        g.setColor(t);
     }
 
     // /**
@@ -85,22 +87,22 @@ public class DataUI {
     // }
 
     public void setColour(Color color) {
-	colour = color;
+        colour = color;
     }
-    
-    public Color getColour(){
-	return colour;
+
+    public Color getColour() {
+        return colour;
     }
 
     public void setDirection(int dir) {
-	direction = dir;
+        direction = dir;
     }
 
     public int getDirection() {
-	return direction;
+        return direction;
     }
 
     public String getDisplayString() {
-	return dispString;
+        return dispString;
     }
 }

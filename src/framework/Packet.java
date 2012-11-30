@@ -21,123 +21,125 @@ package framework;
 import module.DataUI;
 
 /**
- * Packet.java A data packet in the network, can be in a port or a wire. Created on December 7, 2006,
+ * Packet.java A data packet in the network, can be in a port or a wire. Created
+ * on December 7, 2006,
  * 
  * @author Nirupam
  * @author Rohit
  */
 public class Packet {
     /** Data Members */
-    private long    toId;
-    private long    fromId;
+    private long toId;
+    private long fromId;
     private boolean corrupt;
     private boolean willGetCorrupt = false;
-    private long    size;
-    private String  data;
-    private Port    fromPort;
-    private boolean isDropped      = false;
+    private long size;
+    private String data;
+    private Port fromPort;
+    private boolean isDropped = false;
     // private double pickUpTime;
-    public boolean  isReply	= false;
-    public DataUI   dataUI;
-    public int      toPort	 = 0;
+    public boolean isReply = false;
+    public DataUI dataUI;
+    public int toPort = 0;
 
     /** constructors */
     public Packet() {
-	toId = 0;
-	fromId = 0;
-	size = 0;
-	corrupt = false;
-	data = null;
-	dataUI = null;// new DataUI();
+        toId = 0;
+        fromId = 0;
+        size = 0;
+        corrupt = false;
+        data = null;
+        dataUI = null;// new DataUI();
     }
 
     public Packet(Packet p) {
-	toId = p.toId;
-	fromId = p.fromId;
-	size = p.size;
-	corrupt = p.corrupt;
-	data = new String(p.data);
-	isReply = p.isReply;
+        toId = p.toId;
+        fromId = p.fromId;
+        size = p.size;
+        corrupt = p.corrupt;
+        data = new String(p.data);
+        isReply = p.isReply;
     }
 
     /* member functions */
     public Packet(long toId, long fromId, long size, String data) {
-	this.toId = toId;
-	this.fromId = fromId;
-	this.size = size;
-	this.data = data;
-	corrupt = false;
-	dataUI = null;// new DataUI();
+        this.toId = toId;
+        this.fromId = fromId;
+        this.size = size;
+        this.data = data;
+        corrupt = false;
+        dataUI = null;// new DataUI();
     }
 
     public Packet(long toId, long fromId, long size, String data, int portIndex) {
-	this.toId = toId;
-	this.fromId = fromId;
-	this.size = size;
-	this.data = data;
-	corrupt = false;
-	dataUI = null;// new DataUI();
-	toPort = portIndex;
+        this.toId = toId;
+        this.fromId = fromId;
+        this.size = size;
+        this.data = data;
+        corrupt = false;
+        dataUI = null;// new DataUI();
+        toPort = portIndex;
     }
 
-    public Packet(long toId, long fromId, long size, String data, int portIndex, boolean reply) {
-	this.toId = toId;
-	this.fromId = fromId;
-	this.size = size;
-	this.data = data;
-	corrupt = false;
-	dataUI = null;// new DataUI();
-	toPort = portIndex;
-	isReply = reply;
+    public Packet(long toId, long fromId, long size, String data,
+            int portIndex, boolean reply) {
+        this.toId = toId;
+        this.fromId = fromId;
+        this.size = size;
+        this.data = data;
+        corrupt = false;
+        dataUI = null;// new DataUI();
+        toPort = portIndex;
+        isReply = reply;
     }
 
     public void gotCorrupted() {
-	corrupt = true;
+        corrupt = true;
     }
 
     public boolean isCorrupt() {
-	return corrupt;
+        return corrupt;
     }
 
     public long getToId() {
-	return toId;
+        return toId;
     }
 
     public long getFromId() {
-	return fromId;
+        return fromId;
     }
 
     public String getData() {
-	return data;
+        return data;
     }
 
     public Port getFromPort() {
-	return fromPort;
+        return fromPort;
     }
 
     public boolean isDroppedPacket() {
-	return isDropped;
+        return isDropped;
     }
 
     public void setDroppedPacket(boolean f) {
-	isDropped = f;
+        isDropped = f;
     }
 
     /*
      * public double getPickUpTime (){ return pickUpTime; }
      */
     public void setFromPort(Port port) {
-	fromPort = port;
+        fromPort = port;
     }
 
     /*
      * public void setPickUpTime (double time){ pickUpTime=time; }
      */
     public void setWillGetCorrupt() {
-	willGetCorrupt = true;
+        willGetCorrupt = true;
     }
 
     public boolean getWillGetCorrupt() {
-	return willGetCorrupt;
+        return willGetCorrupt;
     }
 }

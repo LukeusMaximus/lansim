@@ -25,10 +25,10 @@ package module.Router;
  */
 public class RoutElement {
     long compID;
-    int  health;
+    int health;
 
     RoutElement(long c, int h) {
-	compID = c;
-	health = h;
+        compID = c;
+        health = h;
     }
 }

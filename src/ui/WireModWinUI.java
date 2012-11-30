@@ -36,55 +36,56 @@ import module.moduleWindow;
  * 
  */
 public class WireModWinUI implements ActionListener, ModuleWinUI {
-    JPanel       propPg      = null;
-    JCheckBox    dropPackets = null;
-    moduleWindow modWin      = null;
-    WireUI       wireUI      = null;
+    JPanel propPg = null;
+    JCheckBox dropPackets = null;
+    moduleWindow modWin = null;
+    WireUI wireUI = null;
 
     public WireModWinUI(WireUI w) {
-	wireUI = w;
+        wireUI = w;
     }
 
     public JPanel getPropertyPage() {
-	if (propPg == null) {
-	    propPg = new JPanel();
-	    propPg.setLayout(new BorderLayout());
-	    propPg.add(getChkEmit(), BorderLayout.CENTER);
-	    propPg.setPreferredSize(new Dimension(150, 100));
-	}
-	return propPg;
+        if (propPg == null) {
+            propPg = new JPanel();
+            propPg.setLayout(new BorderLayout());
+            propPg.add(getChkEmit(), BorderLayout.CENTER);
+            propPg.setPreferredSize(new Dimension(150, 100));
+        }
+        return propPg;
     }
 
     private JCheckBox getChkEmit() {
-	if (dropPackets == null) {
-	    dropPackets = new JCheckBox("Drop Packets");
-	    dropPackets.setSelected(wireUI.wire.isDroppingPackets());
-	    dropPackets.addActionListener(this);
-	}
-	return dropPackets;
+        if (dropPackets == null) {
+            dropPackets = new JCheckBox("Drop Packets");
+            dropPackets.setSelected(wireUI.wire.isDroppingPackets());
+            dropPackets.addActionListener(this);
+        }
+        return dropPackets;
     }
 
     public boolean isPropertyPageAvailable(Mode mode) {
-	if (mode == Mode.EDIT_MODE || mode == Mode.SIMULATION_MODE)
-	    return true;
-	else
-	    return false;
+        if (mode == Mode.EDIT_MODE || mode == Mode.SIMULATION_MODE)
+            return true;
+        else
+            return false;
     }
 
     public void actionPerformed(ActionEvent e) {
-	wireUI.wire.setDropPackets(dropPackets.isSelected());
+        wireUI.wire.setDropPackets(dropPackets.isSelected());
     }
 
     public void reset() {
-	if (modWin != null)
-	    modWin.reset();
+        if (modWin != null)
+            modWin.reset();
     }
 
     public Point getCoord() {
-	return new Point(30, 30); // TODO generate a coord value based on one of the two modules.
+        return new Point(30, 30); // TODO generate a coord value based on one of
+                                  // the two modules.
     }
 
     public String getNameToDisplay() {
-	return "Wire " + wireUI.toString();
+        return "Wire " + wireUI.toString();
     }
 }

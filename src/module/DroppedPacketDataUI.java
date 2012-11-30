@@ -26,33 +26,33 @@ import framework.Packet;
 
 /**
  * Created on 12-May-08
- *
+ * 
  * @author Nirupam
  * 
  */
 public class DroppedPacketDataUI extends DataUI {
-    private int	    renderss2live = 15;
-    private int	    reners2pause  = 15;
+    private int renderss2live = 15;
+    private int reners2pause = 15;
     private Point2D.Double lastPos;
 
     public DroppedPacketDataUI(Packet p) {
-	super(p);
-	setDisplayString("Dropped!");
+        super(p);
+        setDisplayString("Dropped!");
     }
 
     public void render(Graphics g) {
-	if (renderss2live > 0) {
-	    super.render(g);
-	    lastPos = super.pos;
-	    renderss2live--;
-	} else if (reners2pause > 0) {
-	    super.pos = lastPos;
-	    super.render(g);
-	    reners2pause--;
-	}
+        if (renderss2live > 0) {
+            super.render(g);
+            lastPos = super.pos;
+            renderss2live--;
+        } else if (reners2pause > 0) {
+            super.pos = lastPos;
+            super.render(g);
+            reners2pause--;
+        }
     }
 
     public boolean isAlive() {
-	return renderss2live > 0 || reners2pause > 0;
+        return renderss2live > 0 || reners2pause > 0;
     }
 }

@@ -29,8 +29,8 @@ import java.awt.geom.Point2D;
  * 
  */
 public class WireCreationMode {
-    public static Port	   port		 = null;
-    public static Wire	   wire		 = null;
-    public static WireUI	 wireUI	       = null;
+    public static Port port = null;
+    public static Wire wire = null;
+    public static WireUI wireUI = null;
     public static Point2D.Double mousePointerLocation = null;
 }

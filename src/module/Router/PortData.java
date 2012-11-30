@@ -27,47 +27,48 @@ import java.util.ArrayList;
  */
 public class PortData {
     ArrayList<RoutElement> compData;
-    static final int       MAXHEALTH = 50;
+    static final int MAXHEALTH = 50;
 
     public PortData() {
-	compData = new ArrayList<RoutElement>();
+        compData = new ArrayList<RoutElement>();
     }
 
     public void updateCompId(long id) {
-	for (int i = 0; i < compData.size(); i++) {
-	    if (compData.get(i).compID == id) {
-		compData.get(i).health = MAXHEALTH;
-		return;
-	    }
-	}
-	compData.add(new RoutElement(id, MAXHEALTH));
+        for (int i = 0; i < compData.size(); i++) {
+            if (compData.get(i).compID == id) {
+                compData.get(i).health = MAXHEALTH;
+                return;
+            }
+        }
+        compData.add(new RoutElement(id, MAXHEALTH));
     }
 
     public void removeExpiredId() {
-	for (int i = 0; i < compData.size(); i++) {
-	    compData.get(i).health--;
-	    if (compData.get(i).health <= 0) {
-		compData.remove(i);
-	    }
-	}
+        for (int i = 0; i < compData.size(); i++) {
+            compData.get(i).health--;
+            if (compData.get(i).health <= 0) {
+                compData.remove(i);
+            }
+        }
     }
 
     public void removeAllCompInfo() {
-	compData.clear();
+        compData.clear();
     }
 
     public boolean isIdPresent(long id) {
-	for (int i = 0; i < compData.size(); i++)
-	    if (compData.get(i).compID == id)
-		return true;
-	return false;
+        for (int i = 0; i < compData.size(); i++)
+            if (compData.get(i).compID == id)
+                return true;
+        return false;
     }
 
     public String getAllCompInfo() {
-	String info = new String();
-	for (int i = 0; i < compData.size(); i++) {
-	    info += " (" + compData.get(i).compID + "," + compData.get(i).health + ")";
-	}
-	return info;
+        String info = new String();
+        for (int i = 0; i < compData.size(); i++) {
+            info += " (" + compData.get(i).compID + ","
+                    + compData.get(i).health + ")";
+        }
+        return info;
     }
 }

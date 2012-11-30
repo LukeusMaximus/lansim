@@ -21,15 +21,18 @@ package util;
 
 /**
  * Created on 13-May-08
- *
+ * 
  * @author Nirupam
  * 
  */
 public class MiscFunctions {
     public static String convertPath2className(String path) {
-	//Converting Pathname to classname
-	String className = path.replaceAll("/", "."); //Replacing all / with .
-	className = className.substring(0, className.lastIndexOf('.')); //Truncating the .class extension.
-	return className;
+        // Converting Pathname to classname
+        String className = path.replaceAll("/", "."); // Replacing all / with .
+        className = className.substring(0, className.lastIndexOf('.')); // Truncating
+                                                                        // the
+                                                                        // .class
+                                                                        // extension.
+        return className;
     }
 }
